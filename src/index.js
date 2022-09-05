@@ -80,7 +80,6 @@ function getForecast(coordinates) {
 }
 
 function showTemperature(response) {
-  console.log(response.data);
   let temperatureElement = document.querySelector("#currentTemp");
   let city = document.querySelector("#location");
   let description = document.querySelector("#conditions");
