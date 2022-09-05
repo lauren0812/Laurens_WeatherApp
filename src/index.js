@@ -40,6 +40,32 @@ calendar.innerHTML = `${day} </br> ${month} ${date}, ${year}`;
 let time = document.querySelector("#time");
 time.innerHTML = `Last updated: <br> ${hour}:${minute} ${ampm}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#daily-forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Wed", "Thurs", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+      <div class="forecast-date">${day}</div>
+      <span id="forecast-icon">
+        <img
+          src="http://openweathermap.org/img/wn/50d@2x.png"
+          alt=" "
+          width="60px"
+        />
+      </span>
+      <div class="forecast-temperatures">
+        <span class="forecast-max"> 18° | </span>
+        <span class="forecast-min"> 12° </span>
+      </div>
+    </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showTemperature(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#currentTemp");
@@ -47,6 +73,7 @@ function showTemperature(response) {
   let description = document.querySelector("#conditions");
   let windSpeed = document.querySelector("#windMph");
   let iconElement = document.querySelector("#icon");
+
   celsiusTemp = response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(celsiusTemp);
@@ -90,6 +117,7 @@ function displayCelsiusTemperature(event) {
 let celsiusTemp = null;
 
 search("Denver");
+displayForecast();
 
 let form = document.querySelector("#weather-search");
 form.addEventListener("submit", handleSubmit);
