@@ -40,24 +40,28 @@ let time = document.querySelector("#time");
 time.innerHTML = `Last updated: <br> ${hour}:${minute}`;
 
 function displayForecast() {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#daily-forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Wed", "Thurs", "Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `<div class="col-2">
-      <div class="forecast-date">${day}</div>
+      <div class="forecast-date">${forecastDate(forecastDay.dt)}</div>
       <span id="forecast-icon">
         <img
-          src="http://openweathermap.org/img/wn/50d@2x.png"
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
           alt=" "
           width="60px"
         />
       </span>
       <div class="forecast-temperatures">
-        <span class="forecast-max"> 18° | </span>
-        <span class="forecast-min"> 12° </span>
+        <span class="forecast-max"> ${Math.round(
+          forecastDay.temp.max
+        )}° | </span>
+        <span class="forecast-min"> ${Math.round(forecastDay.temp.min)}° </span>
       </div>
     </div>`;
   });
