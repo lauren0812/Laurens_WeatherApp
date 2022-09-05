@@ -28,8 +28,14 @@ li {
   margin: 20px;
 }
 
-.btn btn-primary {
+.button {
   cursor: pointer;
+  background: #fe4271;
+  border-radius: 10px;
+  border-color: #fe4271;
+  color: #ffffde;
+  font-weight: bold;
+  box-shadow: none;
 }
 
 .author {
