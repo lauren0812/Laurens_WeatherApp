@@ -30,7 +30,6 @@ let hour = now.getHours() % 12 || 12;
 if (hour < 10) {
   hour = `0${hour}`;
 }
-let ampm = hour >= 12 ? "am" : "pm";
 let minute = now.getMinutes();
 if (minute < 10) {
   minute = `0${minute}`;
@@ -38,7 +37,7 @@ if (minute < 10) {
 let calendar = document.querySelector("#date");
 calendar.innerHTML = `${day} </br> ${month} ${date}, ${year}`;
 let time = document.querySelector("#time");
-time.innerHTML = `Last updated: <br> ${hour}:${minute} ${ampm}`;
+time.innerHTML = `Last updated: <br> ${hour}:${minute}`;
 
 function displayForecast() {
   let forecastElement = document.querySelector("#daily-forecast");

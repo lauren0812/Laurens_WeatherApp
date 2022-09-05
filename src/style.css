@@ -11,9 +11,11 @@ h2 {
 }
 
 h2,
-h4 {
+h4,
+.forecast-date {
   color: #fe4271;
   font-weight: bold;
+  text-align: center;
 }
 
 ul {
@@ -40,6 +42,7 @@ li {
 
 .author {
   font-size: x-small;
+  text-align: center;
 }
 
 #icon {
@@ -71,13 +74,11 @@ li {
 .weather-forecast {
   margin-top: 20px;
   text-align: center;
+  margin-left: 160px;
 }
 
 .forecast-date {
-  color: #fe4271;
-  font-weight: bolder;
   text-decoration: underline;
-  text-align: center;
   font-size: 16px;
 }
 
