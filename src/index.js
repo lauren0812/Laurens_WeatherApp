@@ -34,10 +34,12 @@ let minute = now.getMinutes();
 if (minute < 10) {
   minute = `0${minute}`;
 }
+let clock = `${hour}:${minute}`;
+
 let calendar = document.querySelector("#date");
 calendar.innerHTML = `${day} </br> ${month} ${date}, ${year}`;
 let time = document.querySelector("#time");
-time.innerHTML = `Last updated: <br> ${hour}:${minute}`;
+time.innerHTML = `Last updated: <br> ${clock}`;
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
