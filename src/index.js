@@ -26,15 +26,11 @@ let week = [
 let day = week[now.getDay()];
 let date = now.getDate();
 let year = now.getFullYear();
-let hour = now.getHours() % 12 || 12;
-if (hour < 10) {
-  hour = `0${hour}`;
-}
+let hour = now.getHours();
+let suffix = hour >= 12 ? "pm" : "am";
+let hours = ((hour + 11) % 12) + 1 + suffix;
 let minute = now.getMinutes();
-if (minute < 10) {
-  minute = `0${minute}`;
-}
-let clock = `${hour}:${minute}`;
+let clock = `${hour}:${minute} ${suffix}`;
 
 let calendar = document.querySelector("#date");
 calendar.innerHTML = `${day} </br> ${month} ${date}, ${year}`;
