@@ -28,9 +28,15 @@ let date = now.getDate();
 let year = now.getFullYear();
 let hour = now.getHours();
 let suffix = hour >= 12 ? "pm" : "am";
-let hours = ((hour + 11) % 12) + 1 + suffix;
+let hours = ((hour + 11) % 12) + 1;
+if (hour < 10) {
+  hour = `0${hour}`;
+}
 let minute = now.getMinutes();
-let clock = `${hour}:${minute} ${suffix}`;
+if (minute < 10) {
+  minute = `0${minute}`;
+}
+let clock = `${hours}:${minute} ${suffix}`;
 
 let calendar = document.querySelector("#date");
 calendar.innerHTML = `${day} </br> ${month} ${date}, ${year}`;
